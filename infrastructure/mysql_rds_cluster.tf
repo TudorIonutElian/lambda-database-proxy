@@ -3,7 +3,7 @@
 resource "aws_rds_cluster" "mysql" {
   cluster_identifier      = "mysql-cluster"
   engine                  = "aurora-mysql"
-  engine_version          = "5.7.mysql_aurora.2.03.2"
+  engine_version          = "8.0.mysql_aurora.3.04.3"
   database_name           = "mydb"
   master_username         = "admin"
   master_password         = "password"
