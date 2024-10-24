@@ -11,4 +11,5 @@ resource "aws_lambda_function" "lambda_database_proxy_function" {
     Name = "lambda-database-proxy-func"
     Project = "lambda-database-proxy"
   }
+  
 }

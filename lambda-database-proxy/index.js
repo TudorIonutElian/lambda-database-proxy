@@ -29,6 +29,7 @@ module.exports.handler = async (event) => {
         console.log('Query result:', rows);
 
         // Close the connection
+        
         await connection.end();
     } catch (error) {
         console.error('Error connecting to the database:', error);
