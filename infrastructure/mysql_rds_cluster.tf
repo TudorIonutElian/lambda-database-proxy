@@ -11,7 +11,7 @@ resource "aws_rds_cluster" "mysql" {
   preferred_backup_window = "07:00-09:00"
   skip_final_snapshot     = true
   vpc_security_group_ids  = [aws_security_group.lambda_database_proxy_mysql_sg.id]
-  db_subnet_group_name    = aws_db_subnet_group.lambda_database_proxy_subnet.name
+  db_subnet_group_name    = aws_db_subnet_group.lambda_database_proxy_subnet_group.name
   storage_encrypted       = true
   apply_immediately       = true
   tags = {
