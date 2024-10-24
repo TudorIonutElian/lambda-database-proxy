@@ -7,7 +7,7 @@
     - output_path: The path to save the archive file.
 */
 
-data "archive_file" "lambda_dedicated_infrastructure_archive" {
+data "archive_file" "lambda_database_proxy_archive" {
   type        = "zip"
   source_file = "${path.module}/../lambda-database-proxy/index.js"
   output_path = "${path.module}/lambda_database_proxy.zip"
