@@ -10,11 +10,11 @@ resource "aws_rds_cluster" "mysql" {
   backup_retention_period = 5
   preferred_backup_window = "07:00-09:00"
   skip_final_snapshot     = true
-  vpc_security_group_ids  = [aws_security_group.lambda_database_proxy_mysql_sg.id]
-  db_subnet_group_name    = aws_db_subnet_group.lambda_database_proxy_subnet_group.name
   storage_encrypted       = true
   apply_immediately       = true
   iam_database_authentication_enabled = true
+  publicly_accesible      = true
+  
   tags = {
     Name = "mysql-cluster"
   }
