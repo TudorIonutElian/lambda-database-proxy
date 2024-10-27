@@ -14,6 +14,7 @@ resource "aws_rds_cluster" "mysql" {
   db_subnet_group_name    = aws_db_subnet_group.lambda_database_proxy_subnet_group.name
   storage_encrypted       = true
   apply_immediately       = true
+  iam_database_authentication_enabled = true
   tags = {
     Name = "mysql-cluster"
   }
