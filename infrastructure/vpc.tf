@@ -15,3 +15,12 @@ resource "aws_vpc" "lambda_database_proxy_vpc" {
     Project = "lambda-database-proxy"
   }
 }
+
+resource "aws_internet_gateway" "lambda_database_proxy_igw" {
+  vpc_id = aws_vpc.lambda_database_proxy_vpc.id
+
+  tags = {
+    Name    = "lambda_database_proxy_igw"
+    Project = "lambda-database-proxy"
+  }
+}
