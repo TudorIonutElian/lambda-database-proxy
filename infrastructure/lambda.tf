@@ -12,4 +12,9 @@ resource "aws_lambda_function" "lambda_database_proxy_function" {
     Project = "lambda-database-proxy"
   }
 
+  vpc_config {
+    subnet_ids         = [aws_subnet.lambda_database_proxy_subnet[0].id, aws_subnet.lambda_database_proxy_subnet[1].id]
+    security_group_ids = [aws_security_group.lambda_sg.id]
+  }
+
 }

@@ -16,11 +16,14 @@ resource "aws_vpc" "lambda_database_proxy_vpc" {
   }
 }
 
-resource "aws_internet_gateway" "lambda_database_proxy_igw" {
-  vpc_id = aws_vpc.lambda_database_proxy_vpc.id
+resource "aws_subnet" "lambda_database_proxy_subnet" {
+  count             = 2
+  vpc_id            = aws_vpc.lambda_database_proxy_vpc.id
+  cidr_block        = cidrsubnet(aws_vpc.lambda_database_proxy_vpc.cidr_block, 8, count.index)
+  availability_zone = ["eu-central-1a", "eu-central-1b"][count.index]
 
   tags = {
-    Name    = "lambda_database_proxy_igw"
+    Name    = "lambda-database-proxy-subnet-${count.index}"
     Project = "lambda-database-proxy"
   }
 }
