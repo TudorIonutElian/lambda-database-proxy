@@ -10,7 +10,7 @@ resource "aws_iam_role" "lambda_database_proxy_role" {
   assume_role_policy = data.aws_iam_policy_document.LambdaAWSLambdaTrustPolicy.json
 
   tags = {
-    Name = "lambda_database_proxy_role"
+    Name    = "lambda_database_proxy_role"
     Project = "lambda-database-proxy"
   }
 }

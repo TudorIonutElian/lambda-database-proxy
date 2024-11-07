@@ -8,8 +8,8 @@ resource "aws_lambda_function" "lambda_database_proxy_function" {
   depends_on       = [data.archive_file.lambda_database_proxy_archive]
 
   tags = {
-    Name = "lambda-database-proxy-func"
+    Name    = "lambda-database-proxy-func"
     Project = "lambda-database-proxy"
   }
-  
+
 }

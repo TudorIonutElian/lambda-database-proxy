@@ -3,16 +3,16 @@
 **********************************************************/
 
 data "aws_ami" "ec2_ami_filter" {
-  owners = ["amazon"]
+  owners      = ["amazon"]
   most_recent = true
 
   filter {
-    name = "name"
+    name   = "name"
     values = ["al2023-ami-*-x86_64"]
   }
 
   filter {
-    name = "architecture"
+    name   = "architecture"
     values = ["x86_64"]
   }
 }
