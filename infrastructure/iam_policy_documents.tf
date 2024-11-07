@@ -19,3 +19,15 @@ data "aws_iam_policy_document" "LambdaAWSLambdaTrustPolicy" {
     }
   }
 }
+
+data "aws_iam_policy_document" "lambda_network_interface" {
+  statement {
+    actions = [
+      "ec2:CreateNetworkInterface",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DeleteNetworkInterface",
+    ]
+    effect = "Allow"
+    resources = ["*"]
+  }
+}
