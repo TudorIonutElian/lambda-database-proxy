@@ -13,9 +13,22 @@ resource "aws_rds_cluster" "mysql" {
   storage_encrypted       = true
   apply_immediately       = true
   iam_database_authentication_enabled = true
-  publicly_accesible      = true
   
   tags = {
     Name = "mysql-cluster"
+  }
+}
+
+/* add a rds instance cluster to the cluster*/
+
+resource "aws_rds_cluster_instance" "mysql_instance" {
+  count = 2
+  cluster_identifier = aws_rds_cluster.mysql.id
+  instance_class = "db.t3.medium"
+  engine = "aurora-mysql"
+  identifier = "mysql-instance-${count.index}"
+  apply_immediately = true
+  tags = {
+    Name = "mysql-instance-${count.index}"
   }
 }
